@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portofolio Dwi - Teknik Mesin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: #1e1e1e;
+      --text-color: #f0f0f0;
+      --accent-color: #3498db;
+    }
+    body.light-mode {
+      --bg-color: #ffffff;
+      --text-color: #333333;
+      --accent-color: #2980b9;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.5s, color 0.5s;
+      overflow-x: hidden;
+    }
+    header, section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    header.visible, section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    header {
+      background-color: #111;
+      text-align: center;
+    }
+    .profile-pic {
+      width: 140px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 3px solid var(--accent-color);
+    }
+    h1, h2 {
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+    .project {
+      background-color: rgba(255,255,255,0.05);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    ul {
+      margin-bottom: 20px;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #333;
+      color: var(--text-color);
+      border: 1px solid #555;
+    }
+    form button {
+      padding: 10px 20px;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      color: #aaa;
+    }
+    #toggle-theme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .parallax {
+      background-image: url('mesin.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2em;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px #000;
+    }
+  </style>
+</head>
+<body>
+
+<button id="toggle-theme">🌙</button>
+
+<header>
+  <img src="foto-dwi.jpg" alt="Foto Dwi" class="profile-pic" />
+  <h1>Dwi - Lulusan D3 Teknik Mesin</h1>
+  <p>"Ketelitian dan efisiensi adalah fondasi dari setiap solusi teknik."</p>
+</header>
+
+<section id="about">
+  <h2>Tentang Saya</h2>
+  <p>Saya lulusan D3 Teknik Mesin dari Politeknik XYZ. Berpengalaman dalam perawatan mesin produksi, pengelasan, dan desain CAD. Saya memiliki semangat tinggi untuk berkontribusi di dunia industri dan terus mengembangkan keterampilan teknis saya.</p>
+</section>
+
+<div class="parallax">Proyek Teknik</div>
+
+<section id="portfolio">
+  <div class="project">
+    <h3>Perancangan Sistem Hidrolik Mini</h3>
+    <p>Proyek akhir kuliah yang mensimulasikan sistem hidrolik untuk alat angkat ringan. Menggunakan AutoCAD dan simulasi Fluidsim.</p>
+  </div>
+  <div class="project">
+    <h3>Maintenance Mesin CNC</h3>
+    <p>Dokumentasi dan analisis perawatan preventif mesin CNC selama magang di PT Industri Presisi.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Keterampilan & Sertifikasi</h2>
+  <ul>
+    <li>Pengoperasian mesin bubut, frais, dan CNC</li>
+    <li>Desain teknik menggunakan AutoCAD dan SolidWorks</li>
+    <li>Pengelasan MIG dan TIG (Sertifikat BNSP)</li>
+    <li>Perawatan dan troubleshooting mesin produksi</li>
+    <li>Soft Skill: Kerja tim, komunikasi teknis, problem solving</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Kontak</h2>
+  <form>
+    <input type="text" placeholder="Nama" />
+    <input type="email" placeholder="Email" />
+    <textarea placeholder="Pesan Anda"></textarea>
+    <button type="submit">Kirim</button>
+  </form>
+  <p>Email: dwi.teknikmesin@example.com</p>
+  <p>LinkedIn: linkedin.com/in/dwi-teknikmesin</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 D4RR Project.</p>
+</footer>
+
+<script>
+  // Scroll animation
+  const sections = document.querySelectorAll("header, section");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+  sections.forEach(section => observer.observe(section));
+
+  // Toggle theme
+  document.getElementById("toggle-theme").onclick = () => {
+    document.body.classList.toggle("light-mode");
+    document.getElementById("toggle-theme").textContent =
+      document.body.classList.contains("light-mode") ? "🌞" : "🌙";
+  };
+</script>
+
+</body>
+</html>
